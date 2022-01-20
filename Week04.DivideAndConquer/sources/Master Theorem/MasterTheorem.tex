@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+\usepackage[fontsize=13pt]{scrextend}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{mdframed}
+\usepackage{amssymb}
+\usepackage{pgf,tikz,pgfplots}
+\usepackage{graphicx}
+\graphicspath{ {figures/} }
+\usepackage{array}
+\usepackage{cases}
+\usepackage{listings}
+\usepackage{tabulary}
+\usepackage{color}
+\usepackage{float} 
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{minitoc}
+\pgfplotsset{compat=1.5}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows, calc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\pagestyle{empty}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\renewcommand{\listfigurename}{Danh sách hình}
+\renewcommand{\listtablename}{Tables}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{Nguyễn Văn Lộc}
+\newmdenv[linecolor=black,skipabove=\topsep,skipbelow=\topsep,
+leftmargin=-5pt,rightmargin=-5pt,
+innerleftmargin=5pt,innerrightmargin=5pt]{mybox}
+\begin{document}
+\textbf{Theorem.} If
+$$T\left( n \right) = aT\left( {\left\lceil {\frac{n}{b}} \right\rceil } \right) + O\left( {{n^d}} \right)$$
+for constants $a >0,$ $b > 1,$ $d \geqslant 0,$ then:
+$$
+T(n) = 
+\begin{cases}
+O \left( {n^d} \right), & \text{if } d > \log _b a,\\
+O \left( {{n^d}\log n} \right), & \text{if } d = \log _b a,\\
+O \left( {n^{\log _b a}} \right), & \text{if } d < \log _b a\\
+\end{cases}
+.
+$$
+\textbf{Example.}
+$$T\left( n \right) = 4T\left( {\frac{n}{2}} \right) + O\left( n \right) \Rightarrow T\left( n \right) = O\left( {{n^2}} \right).$$
+$$T\left( n \right) = 3T\left( {\frac{n}{2}} \right) + O\left( n \right) \Rightarrow T\left( n \right) = O\left( {{n^{{{\log }_2}3}}} \right).$$
+$$T\left( n \right) = 2T\left( {\frac{n}{2}} \right) + O\left( n \right) \Rightarrow T\left( n \right) = O\left( {n\log n} \right).$$
+$$T\left( n \right) = T\left( {\frac{n}{2}} \right) + O\left( 1 \right) \Rightarrow T\left( n \right) = O\left( {\log n} \right).$$
+\end{document}
