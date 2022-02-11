@@ -37,6 +37,8 @@ int main() {
 	for (int i = 0; i < n; i++) { 
         cin >> w[i]; 
     }
-    
+
 	cout << optimal_weight(W, w) << '\n';
+
+    return 0;
 }
